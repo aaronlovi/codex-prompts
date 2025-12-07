@@ -1,0 +1,12 @@
+# OS/editor cruft
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Swap and backups
+*.swp
+*~
+
+# Logs and temp
+*.log
