@@ -4,7 +4,7 @@ Build a Codex-to-Codex pipeline that can chain tasks and prompts reliably. Ensur
 
 ## Usage
 - Invoke with a task description `$TASK`.
-- Auto-skim repo context (e.g., always read `AGENTS.md`; also check `README.md`, `CONTRIBUTING.md`) and list relevant files (`rg --files`) before asking questions.
+- Auto-skim repo context (e.g., always read the target repo’s `AGENTS.md`; also check `README.md`, `CONTRIBUTING.md`); if no prompt-specific rules are present, apply shared defaults in `prompts/PROMPT_RULES.md`. List relevant files (`rg --files`) before asking questions.
 - Ask 1–5 outcome-focused questions to lock down scope and success criteria; skip questions if answers are obvious from context; stop once purpose and success outcomes are clear; confirm test/verification commands if manifests suggest them.
 - Purposes:
   - Research: gather information, comparisons, risks.

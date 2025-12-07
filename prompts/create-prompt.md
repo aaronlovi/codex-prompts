@@ -5,7 +5,7 @@ Use this prompt to craft task-specific prompts for Codex across any stack. Keep 
 ## Usage and flow
 - Invoked with a task description `$TASK` (e.g., "Create the Inventory Manager module with capacity limits").
 - Intake focuses on business/outcome questions: ask whatever you need to clarify desired outcomes, success criteria, scope, stack, test command, and key files. Avoid "how" questions—the implementation is yours to decide. Aim for 1–2 rounds; allow up to 4 only if genuinely complex; stop once outcomes are clear.
-- Before asking, auto-skim easy context: always read `AGENTS.md` if present; also check `README.md` and `CONTRIBUTING.md`; list files (e.g., `ls`, `rg --files`) to avoid unnecessary questions.
+- Before asking, auto-skim easy context: always read the target repo’s `AGENTS.md` if present; also check `README.md` and `CONTRIBUTING.md`; if no prompt-specific guidance exists, apply shared rules in `prompts/PROMPT_RULES.md`. List files (e.g., `ls`, `rg --files`) to avoid unnecessary questions.
 - Decide if the task needs one prompt or multiple (sequential if dependent, parallel if independent and non-overlapping).
 - Generate the prompt(s) yourself—optimized for Codex execution—using the structure below, filling concrete paths and commands (no placeholders).
 - Save each prompt to `./prompts/NNN-name.md` (increment number automatically based on existing files).

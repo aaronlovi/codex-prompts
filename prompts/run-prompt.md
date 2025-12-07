@@ -7,7 +7,7 @@ Use this to select and execute prompt files in `./prompts/` (numbered) or explic
 - Run only prompts you explicitly resolved; do not move/rename prompt files unless instructed.
 
 ## Safety and sandbox
-- Respect current sandbox/approval constraints; do not request escalations if disallowed.
+- Respect current sandbox/approval constraints; do not request escalations if disallowed. Follow the target repo’s `AGENTS.md`; if absent for prompt work, use shared defaults in `prompts/PROMPT_RULES.md`.
 - Prefer read/search commands; avoid destructive git commands; do not commit unless the user explicitly asks.
 - Parallel only if prompts touch disjoint files/directories; otherwise force sequential.
 
