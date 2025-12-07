@@ -11,6 +11,7 @@ Use this prompt to craft task-specific prompts for Codex across any stack. Keep 
 - Save each prompt to `./prompts/NNN-name.md` (increment number automatically based on existing files).
 - After saving, briefly note next steps (e.g., run/review). Do not add explanations inside the saved prompt files.
 - Keep generated prompts lean: concise bullets, no repeated boilerplate, only sections that add value.
+- Note on file locations: the helper prompts in `/prompts` (this file, create-meta-prompt, run-prompt) stay unnumbered; new runnable prompts in `./prompts/` must use zero-padded numeric prefixes.
 
 ## Intake
 - If the task is missing or vague, ask outcome-focused questions (what success looks like, constraints, priorities) plus essentials (scope, stack, test command, key files). Avoid asking how to implement—decide that yourself. Aim for 1–2 rounds; allow up to 4 only if genuinely complex; stop once outcomes are clear.

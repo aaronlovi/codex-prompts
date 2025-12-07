@@ -11,6 +11,7 @@ Build a Codex-to-Codex pipeline that can chain tasks and prompts reliably. Ensur
   - Plan: turn research into a concrete implementation plan.
   - Do: implement according to a plan or, if none, a minimal self-authored plan.
 - If purpose is ambiguous, propose the best-fit purpose with a brief rationale and let the user confirm.
+- Note on file locations: the helper prompts in `/prompts` (this file, create-prompt, run-prompt) stay unnumbered; numbered runnable prompts still belong under `./prompts/NNN-name.md`; slugged meta outputs belong under `.prompts/{slug}-{purpose}/`.
 
 ## Dependency detection
 - Derive the topic slug: lowercase, hyphenate words, drop common stopwords (a, an, the, and, or, of, for, to). Use this slug for creation and lookup.
@@ -22,7 +23,8 @@ Build a Codex-to-Codex pipeline that can chain tasks and prompts reliably. Ensur
 - For parallel branches, require a reconciliation step before downstream plan/do: note which branch is canonical or how to merge findings (e.g., summary plus chosen dependencies).
 
 ## Prompt generation
-- Name prompts descriptively without numeric prefixes; format: `.prompts/{slug}-{purpose}/prompt.md` (slug = short hyphenated topic, purpose ∈ {research, plan, do}). Numbered prompts elsewhere in the repo are fine; meta-prompt artifacts stay slugged.
+- Meta prompts: name descriptively without numeric prefixes; format: `.prompts/{slug}-{purpose}/prompt.md` (slug = short hyphenated topic, purpose ∈ {research, plan, do}); meta-prompt artifacts stay slugged.
+- Numbered runnable prompts: keep using `./prompts/NNN-name.md` for standard tasks. Leave the helper files in `/prompts` unnumbered.
 - To run via the standard runner, surface the exact path(s) to pass into the flow from `prompts/run-prompt.md` (e.g., target `.prompts/{slug}-{purpose}/prompt.md` explicitly). If numbered prompts are relevant references, list them under “Key references.”
 - After execution, move `prompt.md` to `.prompts/{slug}-{purpose}/completed/prompt.md` as part of wrap-up (do not assume automation); if execution fails or is partial, leave the prompt in place and record status in the output file.
 - Structure the generated prompt with concise sections (omit unused):

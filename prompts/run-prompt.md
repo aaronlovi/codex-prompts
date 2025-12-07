@@ -21,7 +21,7 @@ Use this to select and execute prompt files in `./prompts/` (numbered) or explic
    - Flags: `--parallel`, `--sequential` (default sequential if multiple targets).
    - Targets: numbers map to zero-padded prefixes (`5` → `005-*`); text matches substring in filename; explicit paths are used as-is. Sort filenames deterministically.
    - Empty/`last`: pick most recent numbered prompt by mtime under `./prompts/`; slugged prompts require explicit selection or path.
-   - If filenames lack numeric prefixes, order by mtime when running multiples.
+   - If you explicitly pass non-numbered targets (e.g., slugged meta prompt paths), order by mtime when running multiples. Runnable prompts under `./prompts/` should follow numeric prefixes; helper files in `/prompts` stay unnumbered.
 3) Resolve files:
    - If one match per target, use it.
    - If multiple matches, list options with indices and ask the user to choose; default to sequential ordering and force disambiguation. Exclude archived prompts under `/completed/` unless explicitly requested.
