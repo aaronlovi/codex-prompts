@@ -1,6 +1,6 @@
 # Codex Prompt Runner (General)
 
-Use this to select and execute prompt files in `./prompts/` (numbered) or explicit prompt paths (e.g., slugged `.prompts/{slug}-{purpose}/prompt.md`) within the current Codex context. Default to safe, sequential execution.
+Use this to select and execute prompt files in `./prompts/` (numbered) or explicit prompt paths (e.g., slugged `.prompts/{slug}-{purpose}/prompt.md`) within the current Codex context. Helpers in `/prompts` are not runnable tasks. Default to safe, sequential execution.
 
 ## Usage
 - Invocation argument `$TARGETS`: empty → most recent numbered prompt; number(s) or partial name(s) → resolve matching files; explicit paths are allowed (including `.prompts/**/prompt.md`); optional `--parallel` or `--sequential` flag (default sequential).
@@ -35,15 +35,15 @@ Use this to select and execute prompt files in `./prompts/` (numbered) or explic
    - Present resolved prompts and strategy. Ask: Proceed / Reselect / Abort. If still ambiguous after two passes, default to sequential with the current set.
 6) Execute (sequential recommended):
    - Read the prompt file.
-   - Follow its instructions faithfully (use `rg` for search, `apply_patch` for edits, respect style/sandbox notes). Read linked repo conventions (README/CONTRIBUTING/AGENTS/etc.) before edits. Honor any prompt-specific verification/sandbox directions. For chained meta prompts, read the latest metadata in referenced research/plan/implementation notes before proceeding; expect `### Status` to be one of success/partial/failed.
-   - Run tests/commands only if allowed; otherwise note what should be run in results.
+   - Follow its instructions faithfully (use `rg` for search, `apply_patch` for edits, respect style/sandbox notes). Read linked repo conventions (README/CONTRIBUTING/AGENTS/etc.) before edits. Honor prompt-specific verification/sandbox directions. For chained meta prompts, read the latest metadata in referenced research/plan/implementation notes before proceeding; expect `### Status` to be one of success/partial/failed.
+   - Run tests/commands only if allowed; if blocked by sandbox/approval, record what to run later.
    - Complete one prompt before starting the next.
 7) Parallel note:
    - If truly independent and safe, you may interleave work, but ensure no file conflicts. Check prompt contents for overlapping paths; if uncertain, force sequential.
    - To check overlap, scan each prompt for file paths (`./...`) and avoid parallel if any intersect. For slugged meta prompts, read referenced file paths and metadata to confirm separation.
 8) Wrap-up:
    - Summarize what was done per prompt.
-   - Note any skipped steps due to sandbox (e.g., tests not run) and any assumptions made.
+   - Note any skipped steps due to sandbox (e.g., tests not run) and what to run later; record assumptions.
    - Do not auto-archive or commit; only do so if explicitly requested.
 
 ## Output format
